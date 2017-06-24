@@ -1,0 +1,15 @@
+version: '2'
+services:
+      back:
+        build   : ./back/.
+        ports   :
+         - "80:80"
+        volumes :
+         - ./back:/ap
+         - ./front/dist:/ap/static
+      front:
+        build   : ./front/.
+        volumes :
+         - ./front/dist:/app/output
+         - ./front/src:/app/src
+        

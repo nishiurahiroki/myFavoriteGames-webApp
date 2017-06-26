@@ -8,4 +8,4 @@
 docker-compose up
 
 ## start
-http://<<hostName>>
+http://<<host-ame>>

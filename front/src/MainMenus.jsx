@@ -17,17 +17,15 @@ export default class MainMenus extends React.Component{
   getMenus() {
     const browserHistory = this.state.browserHistory;
     return (
-      <div>
-        <Menu style={{width:"20vw"}}>
-          {this.state.infos.map((info) => {
-            return (
-              <MenuItem key={info.route} primaryText={info.title} onClick={() => {
-                browserHistory.push(info.route);
-              }} />
-            )
-          })}
-        </Menu>
-      </div>
+      <Menu style={{width:"20vw", display:'inline-block'}}>
+        {this.state.infos.map((info) => {
+          return (
+            <MenuItem key={info.route} primaryText={info.title} onClick={() => {
+              browserHistory.push(info.route);
+            }} />
+          )
+        })}
+      </Menu>
     )
   }
 
@@ -41,7 +39,7 @@ export default class MainMenus extends React.Component{
 
   render() {
     return (
-      <div>
+      <div style={{ display:'inline-block' }}>
         {this.getMenus()}
         {this.getRouteSettings()}
       </div>

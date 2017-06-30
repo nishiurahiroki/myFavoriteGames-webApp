@@ -1,25 +1,14 @@
 import React from 'react';
 
-import { withRouter } from 'react-router';
+import { onlyUpdateForKeys } from 'recompose';
 
-export default class Login extends React.Component{
-    constructor(props) {
-      super(props);
-      this.state = {
-        history : props.history
-      };
-    }
+const Login = onlyUpdateForKeys(['history'])(({history}) => {
+    return <div>
+            ログインページ
+           <button onClick={() => {
+             history.push('main')
+           }}>ログイン</button>
+          </div>
+});
 
-    login() {
-      this.state.history.push('main');
-    }
-
-    render() {
-      return (
-        <div>
-          ログインページ
-         <button onClick={this.login.bind(this)}>ログイン</button>
-        </div>
-      )
-    }
-}
+export default Login;

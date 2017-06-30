@@ -9,7 +9,7 @@ export default class ListView extends View{
 
   render() {
     return (
-      <div>
+      <div style={{ display:'inline-block' }}>
        一覧画面
       </div>
     )

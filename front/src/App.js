@@ -4,8 +4,8 @@ import ReactDom from 'react-dom';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import injectTapEventPlugin from 'react-tap-event-plugin';
-injectTapEventPlugin();
+import injectTapEvent from 'react-tap-event-plugin';
+injectTapEvent();
 
 import Login from './Login.jsx';
 
@@ -16,6 +16,8 @@ import SystemView from './view/SystemView.jsx';
 
 import MainMenus from './MainMenus.jsx';
 
+import TopIcon from 'material-ui/svg-icons/navigation/apps';
+
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -25,33 +27,37 @@ class App extends React.Component {
   }
 
   render() {
-   const history = this.state.history;
-   return (
-          <MuiThemeProvider>
-            <MainMenus browserHistory={history} infos={[
-              {
-                title : 'トップ',
-                route : '/main/top',
-                view : TopView
-              },
-              {
-                title : '一覧',
-                route : '/main/list',
-                view : ListView
-              },
-              {
-                title : '登録',
-                route : '/main/regist',
-                view : RegistView
-              },
-              {
-                title : '管理',
-                route : '/main/system',
-                view : SystemView
-              }
-            ]} />
-          </MuiThemeProvider>
-        )
+     const history = this.state.history;
+     return (
+            <MuiThemeProvider>
+              <MainMenus browserHistory={history} infos={[
+                {
+                  title : 'トップ',
+                  route : '/main/top',
+                  view : TopView,
+                  icon : <i className="material-icons">public</i>
+                },
+                {
+                  title : '一覧',
+                  route : '/main/list',
+                  view : ListView,
+                  icon : <i className="material-icons">list</i>
+                },
+                {
+                  title : '登録',
+                  route : '/main/regist',
+                  view : RegistView,
+                  icon : <i className="material-icons">create</i>
+                },
+                {
+                  title : '管理',
+                  route : '/main/system',
+                  view : SystemView,
+                  icon : <i className="material-icons">settings</i>
+                }
+              ]} />
+            </MuiThemeProvider>
+          )
   }
 }
 

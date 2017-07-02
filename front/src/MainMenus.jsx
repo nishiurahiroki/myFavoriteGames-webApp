@@ -36,7 +36,9 @@ export default class MainMenus extends React.Component{
     <div style={{float:'left', marginLeft:'2vw'}}>
       {this.state.infos.map((info) => {
         return (
-          <Route key={info.route} path={info.route} component={info.view} />
+          <Route key={info.route} path={info.route} render={(props) => {
+            return <info.view {...props} title={info.title} />
+          }} />
         )
       })}
     </div>

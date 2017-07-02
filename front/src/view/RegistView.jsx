@@ -8,13 +8,10 @@ export default class RegistView extends View{
   }
 
   render() {
-    return super.mainFrame({
-      title : '登録画面',
-      view  : (
-        <div>
-
-        </div>
-      )
-    });
+    return super.mainFrame(
+      <div>
+        登録
+      </div>
+    );
   }
 }

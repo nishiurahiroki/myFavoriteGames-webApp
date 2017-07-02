@@ -29,7 +29,6 @@ class App extends React.Component {
   render() {
      const history = this.state.history;
      return (
-            <MuiThemeProvider>
               <MainMenus browserHistory={history} infos={[
                 {
                   title : 'トップ',
@@ -56,13 +55,13 @@ class App extends React.Component {
                   icon : <i className="material-icons">settings</i>
                 }
               ]} />
-            </MuiThemeProvider>
           )
   }
 }
 
 ReactDom.render(
   (
+  <MuiThemeProvider>
    <Router history={history}>
      <Switch>
       <Route path="/main" component={App}>
@@ -70,6 +69,7 @@ ReactDom.render(
       <Route path="/" component={Login} />
      </Switch>
    </Router>
+  </MuiThemeProvider>
   ),
   document.querySelector('#app')
 );

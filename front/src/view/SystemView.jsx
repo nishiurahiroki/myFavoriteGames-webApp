@@ -8,13 +8,10 @@ export default class SystemView extends View{
   }
 
   render() {
-    return super.mainFrame({
-      title : 'システム設定画面',
-      view : (
-        <div>
-          システム設定画面
-        </div>
-      )
-    })
+    return super.mainFrame(
+      <div>
+        システム設定画面
+      </div>
+    );
   }
 }

@@ -8,13 +8,10 @@ export default class TopView extends View{
    }
 
    render() {
-     return super.mainFrame({
-       title : 'トップ',
-       view  : (
-         <div>
-          トップ画面
-         </div>
-       )
-     })
+     return super.mainFrame(
+       <div>
+        システム設定画面
+       </div>
+     );
    }
 }

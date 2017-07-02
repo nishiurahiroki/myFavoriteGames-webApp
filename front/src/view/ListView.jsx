@@ -10,7 +10,6 @@ export default class ListView extends View {
   }
 
   render() {
-    const hogeProps = {hintText:'プロパティテスト'};
     return super.mainFrame(
       <FormFields settings={[
         {
@@ -50,6 +49,7 @@ export default class ListView extends View {
       submitButtonText="検索"
       onSubmit={(inputValues) => {
         console.log(inputValues);
+        // TODO dosomething
       }}
       />
     );

@@ -3,18 +3,26 @@ import React from 'react';
 import TextField from 'material-ui/TextField';
 import DatePicker from './BaseDatePicker.jsx';
 import Checkbox from 'material-ui/Checkbox';
+import NumberInput from 'material-ui-number-input';
 
 import RaisedButton from 'material-ui/RaisedButton';
 
 export default class FormFields extends React.Component{
   constructor(props) {
     super(props);
+    this.state = {
+      values : {},
+      onChangeFieldValue : this.props.onChangeFieldValue ?
+        this.props.onChangeFieldValue :
+        () => { /** none **/ }
+    };
     this.fieldTypes = {
       text : {
         field : TextField,
         putValueEvent : {
           onChange : (e) => {
             this.state.values[e.target.name] = e.target.value;
+            this.state.onChangeFieldValue(this.state.values);
           }
         }
       },
@@ -23,6 +31,7 @@ export default class FormFields extends React.Component{
         putValueEvent : {
           onDataChange : (name, value) => {
             this.state.values[name] = value;
+            this.state.onChangeFieldValue(this.state.values);
           }
         }
       },
@@ -31,14 +40,21 @@ export default class FormFields extends React.Component{
         putValueEvent : {
           onCheck : (e, checked) => {
             this.state.values[e.target.name] = checked;
+            this.state.onChangeFieldValue(this.state.values);
+          }
+        }
+      },
+      numberText : {
+        field : NumberInput,
+        putValueEvent : {
+          onChange : (e) => {
+            this.state.values[e.target.name] = e.target.value;
+            this.state.onChangeFieldValue(this.state.values);
           }
         }
       }
     };
     this.fieldComponent = null;
-    this.state = {
-      values : {}
-    };
   }
 
   createFields() {
@@ -76,7 +92,7 @@ export default class FormFields extends React.Component{
     }
 
     return (
-      <div style={{width:'55vw'}}>
+      <div style={{width:'75vw'}}>
         <RaisedButton
           label={this.props.submitButtonText}
           primary={true}

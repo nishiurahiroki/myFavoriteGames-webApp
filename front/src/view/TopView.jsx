@@ -10,7 +10,7 @@ export default class TopView extends View{
    render() {
      return super.mainFrame(
        <div>
-        システム設定画面
+        トップ画面
        </div>
      );
    }

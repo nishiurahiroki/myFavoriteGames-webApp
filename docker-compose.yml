@@ -12,4 +12,16 @@ services:
         volumes :
          - ./front/dist:/app/output
          - ./front/src:/app/src
-        
+      db:
+        build   : ./db/.
+        volumes :
+         - ./execSqlFiles:/docker-entrypoint-initdb.d
+      dbclient:
+        build   : ./dbclient/.
+        links   :
+          - db
+        ports   :
+          - "12345:80"
+        environment :
+          - DB_HOST=db
+          - DB_PORT=5432

@@ -1,1 +1,1 @@
-FROM zhajor/docker-phppgadmin:latest
+FROM donnex/pgweb:latest
